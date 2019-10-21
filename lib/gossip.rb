@@ -2,9 +2,9 @@ require 'pry'
 require 'csv'
 
 class Gossip
-  attr_accessor :author, :content
+  attr_accessor :author, :content #pour utiliser ces 2 varaibles d'instance hors de la class
 
-  def initialize(author,content)
+  def initialize(author,content) #initialize 2 variables d'instance
     @author = author
     @content = content
   end
@@ -15,7 +15,7 @@ class Gossip
     end
   end
 
-  def self.all
+  def self.all #va créer un array avec tous les potins 
   all_gossips = []
   CSV.read("./db/gossip.csv").each do |csv_line|
     all_gossips << Gossip.new(csv_line[0], csv_line[1])
